@@ -52,7 +52,7 @@ public class LivreAddServlet extends HttpServlet {
 			id = livreService.create(livre);
 			inputId = String.valueOf(id);
 			newLivre = livreService.getById(id);
-			System.out.println("eak,foeko");
+
 		} catch (ServiceException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();

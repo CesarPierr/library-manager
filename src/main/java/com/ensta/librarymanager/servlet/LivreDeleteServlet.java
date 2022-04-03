@@ -64,7 +64,7 @@ public class LivreDeleteServlet extends HttpServlet {
 		LivreService livreService = LivreServicelmpl.getInstance();
 
 		String inputId = request.getParameter("id");
-		System.out.println("l'id est : " + inputId);
+
 		int id = -1;
 
 		try {

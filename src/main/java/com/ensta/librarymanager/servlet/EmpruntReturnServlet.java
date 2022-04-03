@@ -66,7 +66,6 @@ public class EmpruntReturnServlet extends HttpServlet {
 		} catch (Exception e) {
 			throw new ServletException("Erreur au niveau du servlet : ", e);
 		}
-
 		request.setAttribute("emprunts", emprunts);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/View/emprunt_list.jsp").forward(request, response);
 	}

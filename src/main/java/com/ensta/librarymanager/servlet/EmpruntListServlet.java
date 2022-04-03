@@ -29,10 +29,11 @@ public class EmpruntListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		EmpruntService empruntService = EmpruntServicelmpl.getInstance();
+		String show = request.getParameter("show");
 
 		List<Emprunt> emprunts = new ArrayList<Emprunt>();
 		try {
-			emprunts = empruntService.getListCurrent();
+			emprunts = show == null ? empruntService.getListCurrent() : empruntService.getList();
 		} catch (ServiceException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();

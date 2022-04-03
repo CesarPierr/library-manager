@@ -84,8 +84,7 @@ public class LivreDaolmpl implements LivreDao {
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
-                System.out.println("La première clef auto-générée vaut ");
-                System.out.println(resultSet.getObject(1));
+
                 id = resultSet.getInt(1);
             }
 

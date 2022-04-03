@@ -64,7 +64,7 @@ public class EmpruntDaolmpl implements EmpruntDao {
                             + "INNER JOIN membre ON membre.id = e.idMembre "
                             + "INNER JOIN livre ON livre.id = e.idLivre "
                             + "WHERE dateRetour IS NULL;");
-            System.out.println(resultat);
+
             while (resultat.next()) {
                 Emprunt emprunt = mapper.get_from_sql(resultat);
                 emprunts.add(emprunt);
@@ -163,7 +163,7 @@ public class EmpruntDaolmpl implements EmpruntDao {
     @Override
     public void create(Emprunt emprunt) throws DaoException {
         PreparedStatement preparedStatement = null;
-        System.out.println(emprunt);
+
         try (Connection connexion = ConnectionManager.getConnection()) {
             preparedStatement = connexion
                     .prepareStatement("INSERT INTO emprunt(idMembre, idLivre, dateEmprunt, dateRetour) "
@@ -193,7 +193,7 @@ public class EmpruntDaolmpl implements EmpruntDao {
             preparedStatement = connexion
                     .prepareStatement("UPDATE emprunt "
                             + "SET idMembre = ?, idLivre = ?, dateEmprunt = ?, dateRetour = ? "
-                            + "WHERE id = ?;", Statement.RETURN_GENERATED_KEYS);
+                            + "WHERE id = ?;");
             preparedStatement.setInt(1, emprunt.getIdMembre());
             preparedStatement.setInt(2, emprunt.getIdLivre());
 

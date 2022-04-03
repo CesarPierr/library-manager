@@ -41,13 +41,16 @@
                       <td>${emprunt.getMembre().getPrenom()} ${emprunt.getMembre().getNom()}</td>
                       <td>${emprunt.getDateEmprunt()}</td>
                       <c:if test="${emprunt.getDateRetour() == null}">
-                        <td>${emprunt.getDateRetour()}</td>
                         <td>
                           <a href="/TP3Ensta/emprunt_return?id=${emprunt.getId()}">
-                            <ion-icon class="table-item" name="log-in">
+                            retourner
                           </a>
                         </td>
                       </c:if>
+                      <c:if test="${emprunt.getDateRetour() != null}">
+                        <td>${emprunt.getDateRetour()}</td>
+                      </c:if>
+
 
                     </tr>
                   </c:forEach>

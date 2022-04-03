@@ -104,7 +104,7 @@ public class LivreDetailsServlet extends HttpServlet {
 		} catch (Exception e) {
 			throw new ServletException("Erreur au niveau du servlet : ", e);
 		}
-
+		request.setAttribute("id", id);
 		request.setAttribute("emprunts", listEmprunts);
 		request.setAttribute("livre", livre);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/View/livre_details.jsp").forward(request, response);

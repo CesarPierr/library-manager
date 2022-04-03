@@ -36,7 +36,7 @@ public class MembreAddServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("salut");
+
 		MembreService membreService = MembreServicelmpl.getInstance();
 		String inputNom = request.getParameter("nom");
 		String inputPrenom = request.getParameter("prenom");
@@ -57,7 +57,7 @@ public class MembreAddServlet extends HttpServlet {
 			membre.setAdresse(inputAdresse);
 			membre.setEmail(inputEmail);
 			membre.setTelephone(inputTelephone);
-			System.out.println(membre);
+
 			id = membreService.create(membre);
 			inputId = String.valueOf(id);
 			newMembre = membreService.getById(id);

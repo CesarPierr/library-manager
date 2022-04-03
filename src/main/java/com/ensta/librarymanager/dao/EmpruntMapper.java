@@ -23,9 +23,8 @@ public class EmpruntMapper {
         int idLivre = resultat.getInt("idLivre");
         Date dateEmpruntr = resultat.getDate("dateEmprunt");
         LocalDate dateEmprunt = dateEmpruntr.toLocalDate();
-        Date dateRetourr = resultat.getDate("dateRetour") == null ? null : resultat.getDate("dateRetour");
-        LocalDate dateRetour = dateRetourr == null ? null : dateRetourr.toLocalDate();
-
+        LocalDate dateRetour = resultat.getDate("dateRetour") == null ? null
+                : resultat.getDate("dateRetour").toLocalDate();
         Emprunt emprunt = new Emprunt();
 
         emprunt.setId(id);
@@ -33,7 +32,6 @@ public class EmpruntMapper {
         emprunt.setIdMembre(idMembre);
         emprunt.setDateEmprunt(dateEmprunt);
         emprunt.setDateRetour(dateRetour);
-
         return emprunt;
     }
 }

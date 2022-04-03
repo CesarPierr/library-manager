@@ -109,11 +109,10 @@ public class MembreDaolmpl implements MembreDao {
         PreparedStatement statement = null;
 
         try (Connection connection = ConnectionManager.getConnection()) {
-            statement = connection.prepareStatement(
-                    "UPDATE membre"
-                            + "SET nom = ?, prenom = ?, adresse = ?, email = ?, telephone = ?, "
-                            + "abonnement = ? "
-                            + "WHERE id = ?;");
+            statement = connection.prepareStatement("UPDATE membre "
+                    + "SET nom = ?, prenom = ?, adresse = ?, email = ?, telephone = ?, "
+                    + "abonnement = ? "
+                    + "WHERE id = ?;");
             statement.setString(1, membre.getNom());
             statement.setString(2, membre.getPrenom());
             statement.setString(3, membre.getAdresse());

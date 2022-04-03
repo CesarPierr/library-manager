@@ -116,7 +116,7 @@ public class MembreDetailsServlet extends HttpServlet {
 									// que ça d'initialiser "membre"
 			throw new ServletException("Erreur lors du parsing : id=" + inputId, ebis);
 		}
-
+		request.setAttribute("id", id);
 		request.setAttribute("emprunts", listEmprunts);
 		request.setAttribute("membre", membre);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/View/membre_details.jsp").forward(request, response);
